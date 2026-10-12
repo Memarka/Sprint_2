@@ -13,10 +13,9 @@ public class ShoppingCart {
     // 1. Общая сумма без скидки
     public double getTotalPriceWithoutDiscount() {
         double total = 0.0;
-        for (int i = 0; i < items.length; i++) {
-            Food item = items[i];
+        for (Food item : items) {
             double itemPrice = item.getAmount() * item.getPrice();
-            total = total + itemPrice;
+            total += itemPrice;
         }
         return total;
     }
@@ -24,8 +23,7 @@ public class ShoppingCart {
     // 2. Общая сумма со скидкой
     public double getTotalPriceWithDiscount() {
         double total = 0.0;
-        for (int i = 0; i < items.length; i++) {
-            Food item = items[i];
+        for (Food item : items) {
             double price = item.getAmount() * item.getPrice();
 
             if (item instanceof Discountable) {
@@ -33,7 +31,7 @@ public class ShoppingCart {
                 double discountPercent = discountItem.getDiscount();
                 price = price - (price * discountPercent / 100.0);
             }
-            total = total + price;
+            total += price;
         }
         return total;
     }
@@ -45,7 +43,7 @@ public class ShoppingCart {
             Food item = items[i];
             if (item.isVegetarian()) {
                 double itemPrice = item.getAmount() * item.getPrice();
-                total = total + itemPrice;
+                total += itemPrice;
             }
         }
         return total;

@@ -15,13 +15,13 @@ public class Main {
     ShoppingCart cart = new ShoppingCart(products);
 
     double totalWithoutDiscount = cart.getTotalPriceWithoutDiscount();
-    System.out.println("Общая сумма без скидки: " + totalWithoutDiscount);
+    System.out.printf("Общая сумма без скидки: %.2f%n", totalWithoutDiscount);
 
     double totalWithDiscount = cart.getTotalPriceWithDiscount();
-    System.out.println("Общая сумма со скидкой: " + totalWithDiscount);
+    System.out.printf("Общая сумма со скидкой: %.2f%n", totalWithDiscount);
 
     double vegetarianTotal = cart.getTotalVegetarianPrice();
-    System.out.println("Сумма вегетарианских продуктов без скидки: " + vegetarianTotal);
+    System.out.printf("Сумма вегетарианских продуктов без скидки: %.2f%n", vegetarianTotal);
 
 
     }
